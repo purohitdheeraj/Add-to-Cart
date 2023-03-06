@@ -1,35 +1,51 @@
-const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const path = require("path");
 module.exports = {
 	mode: "none",
-	entry: ["./src/index.js", "./src/styles/main.css"],
+	entry: {
+		index: path.resolve(__dirname, "src", "index.js"),
+	},
 	module: {
 		rules: [
 			{
-				test: /\.(js)$/,
-				exclude: /node_modules/,
-				use: ["babel-loader"],
+				test: /\.filename$/,
+				use: ["loader-b", "loader-a"],
 			},
 			{
 				test: /\.css$/,
 				use: ["style-loader", "css-loader"],
 			},
+			{
+				test: /\.scss$/,
+				use: [
+					"style-loader",
+					"css-loader",
+					"sass-loader",
+				],
+			},
+			{
+				test: /\.js$/,
+				exclude: /node_modules/,
+				use: ["babel-loader"],
+			},
 		],
 	},
-	resolve: {
-		extensions: ["*", ".js"],
-	},
+	plugins: [
+		new HtmlWebpackPlugin({
+			template: path.resolve(
+				__dirname,
+				"src",
+				"index.html"
+			),
+		}),
+	],
 	output: {
-		path: path.resolve(__dirname, "./dist"),
-		filename: "index_bundle.js",
+		path: path.resolve(__dirname, "dist"),
+		filename: "bundle.js",
 	},
-	devServer: {
-		static: {
-			directory: path.join(__dirname, "dist"),
-		},
-		compress: true,
-		port: 9000,
+	optimization: {
+		chunkIds: "named",
+		concatenateModules: true,
+		emitOnErrors: true,
 	},
-	plugins: [new HtmlWebpackPlugin()],
 };

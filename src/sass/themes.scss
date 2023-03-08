@@ -1,0 +1,30 @@
+@import url("./_variable.scss");
+@import url("./_mixins.scss");
+
+$theme-map-light: (
+	$--theme-primary: #d75894,
+	$--theme-secondary: #9b3dca,
+	$--theme-surface: #fff,
+	$--theme-background: #fafafa,
+	$--theme-on-primary: #fff,
+	$--theme-on-secondary: #fff,
+	$--theme-on-surface: #000,
+);
+
+:root.light {
+	@include spread-map($theme-map-light);
+}
+
+$theme-map-dark: (
+	$--theme-primary: #f34c83,
+	$--theme-secondary: #c298dc,
+	$--theme-surface: #2f2b2b,
+	$--theme-background: #1b1918,
+	$--theme-on-primary: #443e41,
+	$--theme-on-secondary: #000,
+	$--theme-on-surface: #f5f1f2,
+);
+
+:root:dark {
+	@include spread-map($theme-map-dark);
+}

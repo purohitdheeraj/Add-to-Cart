@@ -28,6 +28,7 @@
 		"webpack-dev-server": "^4.11.1"
 	},
 	"dependencies": {
+		"firebase": "^9.17.2",
 		"moment": "^2.29.4"
 	}
 }

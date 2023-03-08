@@ -12,6 +12,17 @@ module.exports = {
 				use: ["loader-b", "loader-a"],
 			},
 			{
+				test: /\.html$/,
+				loader: "html-loader",
+			},
+			{
+				test: /\.(png|jpg)$/i,
+				type: "asset/resource",
+				generator: {
+					filename: "images/[name][ext]",
+				},
+			},
+			{
 				test: /\.css$/,
 				use: ["style-loader", "css-loader"],
 			},
@@ -46,6 +57,5 @@ module.exports = {
 	optimization: {
 		chunkIds: "named",
 		concatenateModules: true,
-		emitOnErrors: true,
 	},
 };

@@ -1,3 +1,3 @@
 import "./style.css";
-import "./styles.scss";
+import "./sass/styles.scss";
 console.log("Hare Krishna");

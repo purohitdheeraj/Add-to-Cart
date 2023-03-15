@@ -1,7 +1,7 @@
 {
 	"name": "Hand Cart",
 	"short_name": "myCart",
-	"start_url": "/src/index.html",
+	"start_url": "index.html",
 	"display": "standalone",
 	"background_color": "#fdfdfd",
 	"theme_color": "#db4938",

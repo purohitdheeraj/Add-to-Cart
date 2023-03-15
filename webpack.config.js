@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 const path = require("path");
 module.exports = {
 	mode: "none",
@@ -49,6 +50,14 @@ module.exports = {
 				"index.html"
 			),
 			inject: "body",
+		}),
+		new CopyPlugin({
+			patterns: [
+				{
+					from: "public/resource",
+					to: "resource",
+				}, //to the dist root directory
+			],
 		}),
 	],
 	output: {

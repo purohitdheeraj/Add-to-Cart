@@ -21,6 +21,7 @@ const shoppingListRef = ref(database, "shopping-list");
 const inputEl = document.querySelector(".user-input");
 const addBtn = document.querySelector(".btn-add");
 const displayEl = document.querySelector(".display-items");
+const clearBtn = document.querySelector(".btn-clear");
 
 onValue(shoppingListRef, function (snapshot) {
 	if (snapshot.exists()) {
@@ -59,9 +60,16 @@ function addToListItems(item) {
 	let listItem = document.createElement("li");
 	listItem.classList.add("item");
 	listItem.textContent = itemValue;
+
+	let deleteBtn = document.createElement("button");
+	deleteBtn.type = "button";
+	deleteBtn.textContent = "❌";
+	deleteBtn.className = "deleteBtn";
+	listItem.append(deleteBtn);
+
 	displayEl.appendChild(listItem);
 
-	listItem.addEventListener("dblclick", function () {
+	deleteBtn.addEventListener("click", function () {
 		let exactLocationInDB = ref(
 			database,
 			`shopping-list/${itemId}`
@@ -69,6 +77,11 @@ function addToListItems(item) {
 		remove(exactLocationInDB);
 	});
 }
+
+clearBtn.addEventListener("click", function () {
+	let dbRef = ref(database, `shopping-list`);
+	remove(dbRef);
+});
 
 function clearListItems() {
 	displayEl.innerHTML = "";

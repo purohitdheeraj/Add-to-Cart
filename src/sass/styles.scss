@@ -27,7 +27,7 @@ body {
 }
 .app {
 	font-family: $font-family_1;
-	max-width: 50rem;
+	max-width: 60rem;
 	width: 80%;
 	padding: 2rem;
 	display: flex;
@@ -46,9 +46,10 @@ body {
 	// border: 1px solid;
 	width: 100%;
 	padding-inline-start: 0;
+	list-style-type: none;
 	display: flex;
+	justify-content: center;
 	flex-wrap: wrap;
-	list-style: none;
 	padding: 1rem;
 	gap: 8px;
 	li {
@@ -59,21 +60,45 @@ body {
 		box-shadow: $box-shadow_items;
 	}
 }
-.btn-add {
-	border: none;
-	padding: 1.6rem 1rem;
-	max-width: 18rem;
+.btn-wrapper {
+	display: flex;
 	width: 100%;
+	max-width: 28rem;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+.btn {
+	border: none;
+	padding: 1rem;
 	border-radius: $radius;
-	cursor: pointer;
-	box-shadow: 2px 3px 1px 1px rgba(0, 0, 0, 0.2);
 	background: var(--dk-red);
 	color: $color_1;
 	font-family: $font-family_1;
+	cursor: pointer;
 	font-size: 1.6rem;
+}
+.btn-add {
+	flex: 1 1 12rem;
+	&:hover {
+		box-shadow: 2px 3px 1px 1px rgba(0, 0, 0, 0.2);
+		transition: box-shadow 0.5ms;
+	}
 	&:active {
 		box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.6);
-		transform: scale(0.94);
+		transform: scale(0.9);
+	}
+}
+.btn-clear {
+	flex: 1 1 8rem;
+	&:hover {
+		box-shadow: 2px 3px 1px 1px rgba(0, 0, 0, 0.2);
+		transition: box-shadow 0.5ms;
+	}
+	&:active {
+		box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.6);
+		transform: scale(0.9);
 	}
 }
 .user-input {
@@ -87,5 +112,15 @@ body {
 	font-family: $font-family_1;
 }
 .item {
+	display: flex;
+	justify-content: center;
+}
+.deleteBtn {
+	margin-left: auto;
 	cursor: pointer;
+	border: none;
+	background: none;
+	&:hover {
+		outline: 1px solid rgba(0, 0, 0, 0.2);
+	}
 }

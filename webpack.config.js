@@ -48,6 +48,7 @@ module.exports = {
 				"src",
 				"index.html"
 			),
+			inject: "body",
 		}),
 	],
 	output: {

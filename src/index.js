@@ -34,29 +34,39 @@ onValue(shoppingListRef, function (snapshot) {
 			addToListItems(currentItem);
 		}
 	} else {
-		displayEl.textContent = "database not available";
+		displayEl.textContent = "add some items";
 	}
 });
 
-addBtn.addEventListener("click", async function () {
-	let userInput = await inputEl?.value;
-	push(shoppingListRef, userInput);
-	clearUserInput();
+inputEl.addEventListener("keyup", function (e) {
+	if (e.code === "Enter") {
+		submitData();
+	}
 });
+
+addBtn.addEventListener("click", submitData);
+
+async function submitData() {
+	let userInput = await inputEl?.value.trim(" ");
+	if (userInput) {
+		push(shoppingListRef, userInput);
+	}
+	clearUserInput();
+}
 
 function addToListItems(item) {
 	const [itemId, itemValue] = item;
 	let listItem = document.createElement("li");
+	listItem.classList.add("item");
 	listItem.textContent = itemValue;
 	displayEl.appendChild(listItem);
 
-	listItem.addEventListener("click", function () {
+	listItem.addEventListener("dblclick", function () {
 		let exactLocationInDB = ref(
 			database,
 			`shopping-list/${itemId}`
 		);
 		remove(exactLocationInDB);
-		console.log(`${itemValue} removed successfully`);
 	});
 }
 

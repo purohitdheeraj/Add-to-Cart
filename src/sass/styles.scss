@@ -28,7 +28,7 @@ body {
 .app {
 	font-family: $font-family_1;
 	max-width: 50rem;
-	width: 100%;
+	width: 80%;
 	padding: 2rem;
 	display: flex;
 	flex-direction: column;
@@ -85,4 +85,7 @@ body {
 	border: 1px solid;
 	font-size: 1.6rem;
 	font-family: $font-family_1;
+}
+.item {
+	cursor: pointer;
 }

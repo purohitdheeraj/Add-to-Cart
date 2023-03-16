@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 const path = require("path");
 module.exports = {
 	mode: "none",
@@ -8,10 +9,6 @@ module.exports = {
 	},
 	module: {
 		rules: [
-			{
-				test: /\.filename$/,
-				use: ["loader-b", "loader-a"],
-			},
 			{
 				test: /\.html$/,
 				loader: "html-loader",
@@ -58,6 +55,9 @@ module.exports = {
 					to: "resource",
 				}, //to the dist root directory
 			],
+		}),
+		new Dotenv({
+			systemvars: true,
 		}),
 	],
 	output: {

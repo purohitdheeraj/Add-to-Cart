@@ -1,6 +1,9 @@
 import "./style.css";
 import "./sass/styles.scss";
 import { initializeApp } from "firebase/app";
+
+import { DATABASE_URL } from "../environment";
+
 import {
 	getDatabase,
 	ref,
@@ -10,8 +13,7 @@ import {
 } from "firebase/database";
 
 const firebaseConfig = {
-	databaseURL:
-		"https://handcart-app-default-rtdb.asia-southeast1.firebasedatabase.app/",
+	databaseURL: DATABASE_URL,
 };
 
 const app = initializeApp(firebaseConfig);

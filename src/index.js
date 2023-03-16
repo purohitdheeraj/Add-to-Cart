@@ -17,6 +17,8 @@ const firebaseConfig = {
 		"https://handcart-app-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
 
+console.log("env", DATABASE_URL, PROJECT_ID);
+
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 const shoppingListRef = ref(database, "shopping-list");

@@ -30,6 +30,7 @@
 	},
 	"dependencies": {
 		"copy-webpack-plugin": "^11.0.0",
+		"dotenv": "^16.0.3",
 		"firebase": "^9.17.2",
 		"moment": "^2.29.4"
 	}

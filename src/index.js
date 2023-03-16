@@ -14,7 +14,7 @@ import {
 
 const firebaseConfig = {
 	databaseURL: DATABASE_URL,
-	projectId: PROJECT_ID
+	projectId: PROJECT_ID,
 };
 
 const app = initializeApp(firebaseConfig);

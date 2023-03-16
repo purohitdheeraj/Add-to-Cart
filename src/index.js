@@ -2,7 +2,7 @@ import "./style.css";
 import "./sass/styles.scss";
 import { initializeApp } from "firebase/app";
 
-import { DATABASE_URL } from "../environment";
+import { DATABASE_URL, PROJECT_ID } from "../environment";
 
 import {
 	getDatabase,
@@ -14,6 +14,7 @@ import {
 
 const firebaseConfig = {
 	databaseURL: DATABASE_URL,
+	projectId: PROJECT_ID
 };
 
 const app = initializeApp(firebaseConfig);

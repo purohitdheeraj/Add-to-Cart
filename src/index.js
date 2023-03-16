@@ -16,6 +16,7 @@ const firebaseConfig = {
 	databaseURL: DATABASE_URL,
 	projectId: PROJECT_ID,
 };
+console.log(DATABASE_URL);
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);

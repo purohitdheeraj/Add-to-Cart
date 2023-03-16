@@ -13,8 +13,7 @@ import {
 } from "firebase/database";
 
 const firebaseConfig = {
-	databaseURL:
-		"https://handcart-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+	databaseURL: DATABASE_URL,
 };
 
 console.log("env", DATABASE_URL, PROJECT_ID);

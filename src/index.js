@@ -13,10 +13,9 @@ import {
 } from "firebase/database";
 
 const firebaseConfig = {
-	databaseURL: DATABASE_URL,
-	projectId: PROJECT_ID,
+	databaseURL:
+		"https://handcart-app-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
-console.log(DATABASE_URL);
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);

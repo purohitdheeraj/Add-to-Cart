@@ -1,21 +1,21 @@
 {
-	"name": "Hand Cart",
-	"short_name": "myCart",
-	"start_url": "index.html",
-	"display": "standalone",
-	"background_color": "#fdfdfd",
-	"theme_color": "#db4938",
-	"orientation": "portrait-primary",
-	"icons": [
-		{
-			"src": "/resource/android-chrome-192x192.png",
-			"type": "image/png",
-			"sizes": "72x72"
-		},
-		{
-			"src": "/resource/android-chrome-512x512.png",
-			"type": "image/png",
-			"sizes": "512x512"
-		}
-	]
+  "name": "Hand Cart",
+  "short_name": "myCart",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fdfdfd",
+  "theme_color": "#db4938",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/resource/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "/resource/android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
 }

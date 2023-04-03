@@ -1,4 +1,3 @@
-const DATABASE_URL = process.env.DATABASE_URL;
-const PROJECT_ID = process.env.PROJECT_ID;
+const { DATABASE_URL, PROJECT_ID } = process.env;
 
 export { DATABASE_URL, PROJECT_ID };

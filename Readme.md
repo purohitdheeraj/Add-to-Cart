@@ -11,20 +11,14 @@ To install and run the HandCart app on your local machine, follow these steps:
 1. Clone the repository to your local machine
 2. Install dependencies by running `npm install`
 3. Create a Firebase project and obtain your Firebase config credentials
-4. Create a .env file in the root directory of the project and add your Firebase config credentials to it in the following format:
 
 ```js
-API_KEY = YOUR_API_KEY;
-AUTH_DOMAIN = YOUR_AUTH_DOMAIN;
 DATABASE_URL = YOUR_DATABASE_URL;
-PROJECT_ID = YOUR_PROJECT_ID;
-STORAGE_BUCKET = YOUR_STORAGE_BUCKET;
-MESSAGING_SENDER_ID = YOUR_MESSAGING_SENDER_ID;
-APP_ID = YOUR_APP_ID;
+
 ```
 
-5. Start the app by running npm start
-6. Open your browser and navigate to http://localhost:8080 to view the app
+1. Start the app by running npm start
+2. Open your browser and navigate to http://localhost:8080 to view the app
 
 ### Usage
 

@@ -2,11 +2,18 @@ import "./style.css";
 import "./sass/styles.scss";
 import { initializeApp } from "firebase/app";
 
-import { getDatabase, ref, onValue, push, remove } from "firebase/database";
-import { DATABASE_URL } from "../environment";
+import {
+	getDatabase,
+	ref,
+	onValue,
+	push,
+	remove,
+} from "firebase/database";
+
 
 const firebaseConfig = {
-  databaseURL: DATABASE_URL,
+	databaseURL:
+		"https://handcart-app-default-rtdb.asia-southeast1.firebasedatabase.app",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -19,66 +26,69 @@ const displayEl = document.querySelector(".display-items");
 const clearBtn = document.querySelector(".btn-clear");
 
 function clearUserInput() {
-  inputEl.value = "";
+	inputEl.value = "";
 }
 
 function clearListItems() {
-  displayEl.innerHTML = "";
+	displayEl.innerHTML = "";
 }
 
 async function submitData() {
-  const userInput = await inputEl.value.trim(" ");
-  if (userInput) {
-    push(shoppingListRef, userInput);
-  }
-  clearUserInput();
+	const userInput = await inputEl.value.trim(" ");
+	if (userInput) {
+		push(shoppingListRef, userInput);
+	}
+	clearUserInput();
 }
 
 function addToListItems(item) {
-  const [itemId, itemValue] = item;
-  const listItem = document.createElement("li");
-  listItem.classList.add("item");
-  listItem.textContent = itemValue;
+	const [itemId, itemValue] = item;
+	const listItem = document.createElement("li");
+	listItem.classList.add("item");
+	listItem.textContent = itemValue;
 
-  const deleteBtn = document.createElement("button");
-  deleteBtn.type = "button";
-  deleteBtn.textContent = "❌";
-  deleteBtn.className = "deleteBtn";
-  listItem.append(deleteBtn);
+	const deleteBtn = document.createElement("button");
+	deleteBtn.type = "button";
+	deleteBtn.textContent = "❌";
+	deleteBtn.className = "deleteBtn";
+	listItem.append(deleteBtn);
 
-  displayEl.appendChild(listItem);
+	displayEl.appendChild(listItem);
 
-  deleteBtn.addEventListener("click", () => {
-    const exactLocationInDB = ref(database, `shopping-list/${itemId}`);
-    remove(exactLocationInDB);
-  });
+	deleteBtn.addEventListener("click", () => {
+		const exactLocationInDB = ref(
+			database,
+			`shopping-list/${itemId}`
+		);
+		remove(exactLocationInDB);
+	});
 }
 
 onValue(shoppingListRef, (snapshot) => {
-  if (snapshot.exists()) {
-    const arr = Object.entries(snapshot.val());
+	if (snapshot.exists()) {
+		const arr = Object.entries(snapshot.val());
 
-    clearListItems();
+		clearListItems();
 
-    for (let i = 0; i < arr.length; i += 1) {
-      const currentItem = arr[i];
+		for (let i = 0; i < arr.length; i += 1) {
+			const currentItem = arr[i];
 
-      addToListItems(currentItem);
-    }
-  } else {
-    displayEl.textContent = "add some items";
-  }
+			addToListItems(currentItem);
+		}
+	} else {
+		displayEl.textContent = "add some items";
+	}
 });
 
 inputEl.addEventListener("keyup", (e) => {
-  if (e.code === "Enter") {
-    submitData();
-  }
+	if (e.code === "Enter") {
+		submitData();
+	}
 });
 
 addBtn.addEventListener("click", submitData);
 
 clearBtn.addEventListener("click", () => {
-  const dbRef = ref(database, "shopping-list");
-  remove(dbRef);
+	const dbRef = ref(database, "shopping-list");
+	remove(dbRef);
 });
